@@ -18,10 +18,10 @@ function Navbar() {
         </div>
         <ul className="nav-menu">
             <li>Home</li>
-            <li>Destination</li>
-            <li>Travel</li>
-            <li>Books</li>
-            <li>Views</li>
+            <li>Project</li>
+            <li>Design</li>
+            <li>Interest</li>
+            <li>Contact</li>
         </ul>
         <div className="nav-icons">
             <BiSearch className='icon' style={{marginRight: '1rem'}}/>
