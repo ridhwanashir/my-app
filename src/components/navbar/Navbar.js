@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {BiSearch} from 'react-icons/bi'
+import React, {useState, useEffect } from 'react'
+import {HiQuestionMarkCircle} from 'react-icons/hi'
 import {BsPerson} from 'react-icons/bs'
 import {HiOutlineMenuAlt4} from 'react-icons/hi'
 import {AiOutlineClose} from 'react-icons/ai'
@@ -10,21 +10,39 @@ import './NavbarStyles.css'
 function Navbar() {
   const [nav,setNav] = useState(false)
   const handleNav = () => setNav(!nav)
+  const [screenSize,setScreenSize] = useState(window.innerWidth)
+
+  useEffect(() => {
+    function handleResize() {
+      setScreenSize(window.innerWidth)
+    }
+
+    window.addEventListener('resize',handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  },[])
+
+  useEffect(() => {
+    if (screenSize > 940) {
+      setNav(false)
+    }
+  },[screenSize])
 
   return (
     <div className={nav ? 'navbar navbar-bg' : 'navbar'}>
         <div className={nav ? 'logo dark' : 'logo'}>
-            <h2>My Portofolio.</h2>
+            <h2>Art Gallery</h2>
         </div>
         <ul className="nav-menu">
             <li>Home</li>
-            <li>Project</li>
-            <li>Design</li>
-            <li>Interest</li>
+            <li>Projects</li>
+            <li>Illustrations</li>
+            <li>3D Models</li>
             <li>Contact</li>
         </ul>
         <div className="nav-icons">
-            <BiSearch className='icon' style={{marginRight: '1rem'}}/>
+            <HiQuestionMarkCircle className='icon' style={{marginRight: '1rem'}}/>
             <BsPerson className='icon' />
         </div>
         <div className="hamburger" onClick={handleNav}>
