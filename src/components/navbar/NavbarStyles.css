@@ -41,7 +41,7 @@ li {
         display: flex;
         flex-direction: column;
         width: 100%;
-        top: -100vh;
+        top: -200vh;
         left: 0;
         position: absolute;
         justify-content: space-between;
